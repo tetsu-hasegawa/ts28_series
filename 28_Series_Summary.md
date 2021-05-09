@@ -25,16 +25,21 @@ Stage 3（プロトコルの規定）
 |[525](#ts-28525)|VNFのLCM Stage1。NSのスケーリング、SW更新、各種IFへの要求事項とユースケース。 |ほぼ包含+SQもある526を見たほうがよい。 | 
 |[526](#ts-28526)|VNFのプロシージャー。VNF/NS/NSD/PNFDの作成、スケーリング、状態変化通知、パッケージの管理。 | IEはETSI GS NFV-IFA008, 011, 013を参照となっている。VNFベースのLCMはCNFに最適でない場合もある。| 
 |[527](#ts-28527)|VNFのLCM Stage2。IM(Information Model)とIF Os-Ma-nfvo(OSS-NFVO間)、Ve-Vnfm-em(EM-VNFM間)。 | 詳細はETSI GS NFV-IFA008を参照となっている。|
-|528|省略 | 省略|
+|[528](#ts-28528)|VNFのLCM Stage3。IM(Information Model)とIF Os-Ma-nfvo(OSS-NFVO間)、Ve-Vnfm-em(EM-VNFM間)のプロシージャー、データモデル。   | 詳細はETSI GS NFV-SOL 002(Ve-Vnfm-em), 005(Os-Ma-nfvo)を参照となっている。|
 
 <https://www.etsi.org/standards-search>
+<https://portal.etsi.org/tb.aspx?TBID=831&subTB=831#/>
 
-|NFV| #| 内容 |
+|NFV| # | 内容 |
 |---|---|---|
 |　|001|ユースケース|
 |　|003|略語|
 |EVE|Evolution and Ecosystem ||
+|　|011||
 |IFA|Interfaces and Architecture ||
+|　|008|Ve-VnfmのIF, IM|
+|　|011|VNFDとパッケージ|
+|　|013|Os-Ma-nfvoのIF、IM|
 |NOC|Network Operators Council ||
 |REL|Reliability & Availability ||
 |SEC|Security ||
@@ -69,6 +74,9 @@ Stage 3（プロトコルの規定）
   - [TS 28.527](#ts-28527)
     - [概要](#概要-5)
     - [メモ](#メモ-5)
+  - [TS 28.528](#ts-28528)
+    - [概要](#概要-6)
+    - [メモ](#メモ-6)
 
 <!-- /code_chunk_output -->
 
@@ -98,7 +106,7 @@ Autonomous networkのレベル（ANL）、要件を規定する。
 
 下記のテンプレートを用いて各ユースケース毎に自動化レベルを定義する。
 
-![1](img/1.png)
+![1](img/1.PNG)
 
 例えば、6.2.1 Autonomous network level for RAN NE deploymentの場合、ワークフローにはタスクA～タスクHがあり、どこまで自動化できるかによってANLが決まる。
 
@@ -222,10 +230,36 @@ IEはETSI GS NFV-IFA008, 011, 013を参照となっている。VNFベースのLC
 
 VNFのLCM Stage2。IM(Information Model)とIF Os-Ma-nfvo(OSS-NFVO間)、Ve-Vnfm-em(EM-VNFM間)。
 
-![2](img/2.png)
+![2](img/2.PNG)
 
 ### メモ
 
 詳細はETSI GS NFV-IFA008を参照となっている。
+
+<div style="page-break-before:always"></div>
+
+
+## TS 28.528
+
+- V16.0.0
+
+### 概要
+
+VNFのLCM Stage3。IM(Information Model)とIF Os-Ma-nfvo(OSS-NFVO間)、Ve-Vnfm-em(EM-VNFM間)のプロシージャー、データモデル。  
+
+Os-Ma-nfvoの下記の項目のプロシージャー、API、データモデルはETSI GS NFV-SOL 005で規定される。
+
+- NSD management
+- NS lifecycle management
+- NS lifecycle change notification
+- VNF package management
+
+Ve-Vnfm-emの下記の項目のプロシージャー、API、データモデルはETSI GS NFV-SOL 002で規定される。
+
+- VNF lifecycle management
+
+### メモ
+
+詳細はETSI GS NFV-SOL 002, 005を参照となっている。
 
 <div style="page-break-before:always"></div>
