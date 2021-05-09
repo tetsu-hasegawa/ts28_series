@@ -141,8 +141,7 @@ Management Data Analytics (MDA)に関する規定。
 
 6.2.2 Centralized energy saving solutionの例を示す。関連するPM、MOI、プロシージャーが規定されている。
 
-![3](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://github.com/tetsu-hasegawa/ts28_series/tree/main/img/3.puml)
-
+![3](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/tetsu-hasegawa/ts28_series/main/img/3.puml)
 
 事前に関連するMOIが作成されている。MnSプロデューサーはブースターセル、候補セルからトラフィック負荷PMを収集する。MnSプロデューサーはブスターセルのEnergySaving StateをmodifyMOIAttributesに変更する。ブースターセルは在圏UEをHOする。notifyMOIAttributeValueChangesを送信してもよい。
 
