@@ -141,31 +141,8 @@ Management Data Analytics (MDA)に関する規定。
 
 6.2.2 Centralized energy saving solutionの例を示す。関連するPM、MOI、プロシージャーが規定されている。
 
-```plantuml
-title Centralized energy saving activation Diagram
+![3](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://github.com/tetsu-hasegawa/ts28_series/tree/main/img/3.puml)
 
-participant "MnS producer of Centralized ES" as MnSProdCSON
-participant "Performance Assurance MnS producer" as MnSProdPA
-participant "Provisioning MnS producer" as MnSProdProv
-participant "NR Capacity Booster Cell" as NRCapacityBCell
-participant "NR Cells" as NRCandidateCells
-
-MnSProdPA <- NRCapacityBCell: 1. Collects traffic load performance measurements
-MnSProdPA <- NRCandidateCells: 1. Collects traffic load performance measurements
-
-MnSProdPA -> MnSProdCSON: 2. Collects traffic load performance measurements
-note over MnSProdCSON: Analyzes traffic load performance measurements
-
-opt if decision is taken that the NR capacity booster cell should enter the energySaving state
-MnSProdCSON -> MnSProdProv: 3. <i>modifyMOIAttributes</i> (NR Capacity Booster Cell, (energySaving, old value = 'off', new value = 'on'))
-MnSProdProv -> NRCapacityBCell: 4. Configures NR Capacity Booster Cell
-note over NRCapacityBCell: 5. May initiate handover actions
-MnSProdProv -> NRCandidateCells: 6. Configures Candidate Cells
-note over NRCapacityBCell: 7. Enters energySaving state
-NRCapacityBCell -> MnSProdProv: 8. Informs that energySaving state has changed
-MnSProdProv -> MnSProdCSON: 9. <i>notifyMOIAttributeValueChanges</i> (NR Capacity Booster Cell, (energySaving, old value = 'off', new value = 'on'))
-end
-```
 
 事前に関連するMOIが作成されている。MnSプロデューサーはブースターセル、候補セルからトラフィック負荷PMを収集する。MnSプロデューサーはブスターセルのEnergySaving StateをmodifyMOIAttributesに変更する。ブースターセルは在圏UEをHOする。notifyMOIAttributeValueChangesを送信してもよい。
 
